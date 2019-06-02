@@ -6,9 +6,18 @@ using namespace std;
 
 int par[100000]; //index->node no and value->parent of that node
 int sz[1000000]; //index->node no and value->size of group in which node is present
+int connected;
+
 void make_set (int v) {
 	par[v] = v;
 	sz[v] = 1;
+}
+
+void init( int n ) {
+	for (int i=1; i<=n; i++) {
+		make_set(i);
+	}
+	connected = n;
 }
 
 int find_set (int v) {
@@ -21,13 +30,16 @@ void union_set (int u, int v) {
 	u = find_set(u);
 	v = find_set(v);
 	if (u != v) {
+		connected--;
 		if (sz[u] <= sz[v]) {
 			par[v] = u;
 			sz[u] += sz[v];
+			sz[v] = 0;
 		}
 		else {
 			par[u] = v;
 			sz[v] += sz[u];
+			sz[u] = 0;
 		}
 	}
 }
