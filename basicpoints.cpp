@@ -15,6 +15,9 @@ string s;
 getline (cin , s);
 
 			/ *** /
+Never traverse a set and erase side by side. First find the values to be erased and then erase.
+
+			/ *** /
 
 //Source : https://stackoverflow.com/questions/213907/c-stdendl-vs-n
 
