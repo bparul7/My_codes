@@ -14,6 +14,8 @@ const ll inf = 1e15 + 42;
 #define endl "\n"
 const ll mod = 1000000007;
 int n, m;
+//unordered set takes o(1) time for find, erase , insert. So use unordered_set when constraints are high
+//dfs will cause memory limit exceeded error due to more recursion calls, causing stack overflow.
 vector <set<int>> g(200005); //stores the complementary information given
 set <int> unvisited;         //stores the vertices which has not been added to any component
  
